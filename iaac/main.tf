@@ -25,6 +25,10 @@ provider aws {
   }
 }
 
+data aws_ecr_authorization_token go_server {
+  registry_id = aws_ecr_repository.go_server.registry_id
+}
+
 provider docker {
   registry_auth {
     address  = split("/", local.ecr_url)[0]

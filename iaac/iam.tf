@@ -23,7 +23,7 @@ data aws_iam_policy_document ecr_access_policy_document {
   statement {
     effect = "Allow"
     actions = [
-      "ecr:*",
+      "ecr:BatchGetImage",
     ]
 
     resources = ["*"]

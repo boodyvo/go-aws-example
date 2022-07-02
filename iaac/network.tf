@@ -17,16 +17,16 @@ resource aws_route_table public {
   }
 }
 
+resource aws_main_route_table_association main {
+  route_table_id = aws_route_table.public.id
+  vpc_id         = aws_vpc.main.id
+}
+
 resource aws_subnet main {
   vpc_id = aws_vpc.main.id
   cidr_block = "10.0.0.0/24"
   map_public_ip_on_launch = true
   availability_zone = "us-east-1a"
-}
-
-resource aws_main_route_table_association main {
-  route_table_id = aws_route_table.public.id
-  vpc_id         = aws_vpc.main.id
 }
 
 resource aws_route_table_association main {
